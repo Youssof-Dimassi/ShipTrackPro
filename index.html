@@ -24,7 +24,29 @@
   </header>
 
   <main>
-    <!-- Hero, Features and How it works sections go here (steps 3-5) -->
+    <!-- ===== Hero: main title + tracking form ===== -->
+    <section class="hero" id="track">
+      <h1 class="hero-title">Track your shipment, anywhere in the world</h1>
+      <p class="hero-text">Enter your tracking number to see where your package is and when it will arrive.</p>
+
+      <form class="track-form">
+        <label for="tracking-number" class="track-label">Tracking number</label>
+        <div class="track-row">
+          <input
+            type="text"
+            id="tracking-number"
+            name="tracking-number"
+            class="track-input"
+            placeholder="e.g. STP-123456789"
+            autocomplete="off"
+            required
+          >
+          <button type="submit" class="btn">Track</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Features and How it works sections go here (steps 4-5) -->
   </main>
 
   <!-- Footer goes here (step 6) -->
