@@ -8,6 +8,7 @@
    6. Features (cards)
    7. How it works (steps)
    8. Footer
+   9. Responsive: tablet and desktop (media query)
    ========================================================= */
 
 
@@ -322,4 +323,29 @@ img {
   margin: 0;
   font-size: 0.875rem;
   opacity: 0.8;                   /* slightly faded */
+}
+
+
+/* ===== 9. Responsive: tablet and desktop =====
+   Everything above is the mobile layout (mobile-first).
+   From 768px wide and up, switch to the wider layout. */
+@media (min-width: 768px) {
+
+  /* Header: logo on the left, nav on the right, in one row */
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  /* Bigger hero title */
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  /* Cards and steps: 3 equal columns */
+  .card-grid,
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
