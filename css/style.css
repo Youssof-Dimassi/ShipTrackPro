@@ -2,6 +2,12 @@
    ShipTrackPro - main stylesheet
    1. Variables (colors, spacing, sizes)
    2. Base / reset styles
+   3. Header + navigation
+   4. Hero + tracking form
+   5. Shared section styles
+   6. Features (cards)
+   7. How it works (steps)
+   8. Footer
    ========================================================= */
 
 
@@ -12,7 +18,8 @@
   /* Colors */
   --color-primary: #1d4ed8;       /* main blue: buttons, links */
   --color-primary-dark: #1e3a8a;  /* darker blue: hover, header, footer */
-  --color-accent: #f59e0b;        /* orange: small highlights */
+  --color-accent: #f59e0b;        /* orange: Track button, highlights */
+  --color-accent-dark: #d97706;   /* darker orange: button hover */
   --color-text: #1f2937;          /* main text (dark grey, softer than black) */
   --color-text-muted: #4b5563;    /* secondary text */
   --color-bg: #ffffff;            /* page background */
@@ -87,4 +94,232 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+
+/* ===== 3. Header + navigation ===== */
+.site-header {
+  display: flex;
+  flex-direction: column;         /* mobile: logo on top, nav below */
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  background-color: var(--color-primary-dark);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-decoration: none;          /* remove the underline */
+}
+
+.logo:hover {
+  color: var(--color-accent);
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;                /* links go to a new line if space runs out */
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;               /* remove the bullet points */
+}
+
+.nav-list a {
+  display: block;
+  padding: var(--space-xs);       /* bigger click/tap area */
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  color: var(--color-accent);
+}
+
+
+/* ===== 4. Hero + tracking form ===== */
+.hero {
+  padding: var(--space-xl) var(--space-sm);
+  text-align: center;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+}
+
+.hero-title {
+  max-width: 700px;
+  margin: 0 auto var(--space-sm); /* "auto" left/right centers the block */
+  font-size: 2rem;
+}
+
+.hero-text {
+  max-width: 600px;
+  margin: 0 auto var(--space-lg);
+  font-size: 1.125rem;
+}
+
+.track-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.track-label {
+  display: block;                 /* put the label on its own line */
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+}
+
+.track-row {
+  display: flex;                  /* input and button side by side */
+  gap: var(--space-xs);
+}
+
+.track-input {
+  flex: 1;                        /* input takes all the remaining space */
+  min-width: 0;                   /* allow it to shrink on very small screens */
+  padding: 0.75rem var(--space-sm);
+  font-family: inherit;           /* form fields don't inherit fonts by default */
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* Reusable button style */
+.btn {
+  padding: 0.75rem var(--space-md);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;                /* show the "hand" cursor */
+}
+
+.btn:hover {
+  background-color: var(--color-accent-dark);
+}
+
+
+/* ===== 5. Shared section styles ===== */
+.features,
+.how-it-works {
+  padding: var(--space-xl) var(--space-sm);
+}
+
+.section-title {
+  margin-bottom: var(--space-lg);
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+
+/* ===== 6. Features (cards) ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;     /* mobile: 1 column (step 9 makes it 3) */
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: var(--space-md);
+  text-align: center;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.feature-icon {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: 2.5rem;
+}
+
+.feature-card p {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+
+/* ===== 7. How it works (steps) ===== */
+.how-it-works {
+  background-color: var(--color-bg-alt);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;     /* mobile: 1 column (step 9 makes it 3) */
+  gap: var(--space-lg);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;               /* hide the default "1." numbers */
+}
+
+.step {
+  text-align: center;
+}
+
+/* Number inside a circle */
+.step-number {
+  display: flex;
+  align-items: center;            /* center vertically */
+  justify-content: center;        /* center horizontally */
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto var(--space-sm);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-radius: 50%;             /* 50% turns a square into a circle */
+}
+
+.step p {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+
+/* ===== 8. Footer ===== */
+.site-footer {
+  padding: var(--space-xl) var(--space-sm) var(--space-lg);
+  text-align: center;
+  color: var(--color-white);
+  background-color: var(--color-primary-dark);
+}
+
+.footer-title {
+  font-size: 1.5rem;
+}
+
+.contact-info {
+  margin-bottom: var(--space-lg);
+  font-style: normal;             /* <address> is italic by default */
+}
+
+.contact-info p {
+  margin-bottom: var(--space-xs);
+}
+
+.contact-info a {
+  color: var(--color-white);
+}
+
+.contact-info a:hover {
+  color: var(--color-accent);
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.8;                   /* slightly faded */
 }
