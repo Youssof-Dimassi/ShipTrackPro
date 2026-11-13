@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShipTrackPro: track your shipments in real time, anywhere in the world.">
+  <title>ShipTrackPro | Shipment Tracking</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Header: logo + main navigation ===== -->
+  <header class="site-header" id="top">
+    <a href="#top" class="logo">ShipTrackPro</a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#track">Track</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Hero: main title + tracking form ===== -->
+    <section class="hero" id="track">
+      <h1 class="hero-title">Track your shipment, anywhere in the world</h1>
+      <p class="hero-text">Enter your tracking number to see where your package is and when it will arrive.</p>
+
+      <form class="track-form">
+        <label for="tracking-number" class="track-label">Tracking number</label>
+        <div class="track-row">
+          <input
+            type="text"
+            id="tracking-number"
+            name="tracking-number"
+            class="track-input"
+            placeholder="e.g. STP-123456789"
+            autocomplete="off"
+            required
+          >
+          <button type="submit" class="btn">Track</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== Features: 3 service cards ===== -->
+    <section class="features" id="services">
+      <h2 class="section-title">Our services</h2>
+
+      <div class="card-grid">
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">📍</span>
+          <h3 class="feature-title">Real-time tracking</h3>
+          <p>Follow your package live, from the moment it leaves the warehouse until it reaches your door.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🌍</span>
+          <h3 class="feature-title">Worldwide delivery</h3>
+          <p>We ship to over 200 countries, with trusted partners on every continent.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🔒</span>
+          <h3 class="feature-title">Secure handling</h3>
+          <p>Every parcel is scanned, sealed and insured, so it arrives safe and complete.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== How it works: 3 steps ===== -->
+    <section class="how-it-works" id="how-it-works">
+      <h2 class="section-title">How it works</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="step-number" aria-hidden="true">1</span>
+          <h3 class="step-title">Ship</h3>
+          <p>Drop off your package or book a pickup. We give you a tracking number right away.</p>
+        </li>
+
+        <li class="step">
+          <span class="step-number" aria-hidden="true">2</span>
+          <h3 class="step-title">Track</h3>
+          <p>Enter your tracking number above to follow every stop of your package's journey.</p>
+        </li>
+
+        <li class="step">
+          <span class="step-number" aria-hidden="true">3</span>
+          <h3 class="step-title">Receive</h3>
+          <p>Your package arrives safely, and you get a notification the moment it's delivered.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- ===== Footer: contact info + copyright ===== -->
+  <footer class="site-footer" id="contact">
+    <h2 class="footer-title">Contact us</h2>
+
+    <address class="contact-info">
+      <p>Email: <a href="mailto:support@shiptrackpro.example">support@shiptrackpro.example</a></p>
+      <p>Phone: <a href="tel:+15550100">+1 (555) 0100</a></p>
+      <p>123 Harbor Street, Port City</p>
+    </address>
+
+    <p class="copyright">&copy; 2026 ShipTrackPro. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
