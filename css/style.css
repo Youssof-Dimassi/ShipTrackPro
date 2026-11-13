@@ -1,0 +1,90 @@
+/* =========================================================
+   ShipTrackPro - main stylesheet
+   1. Variables (colors, spacing, sizes)
+   2. Base / reset styles
+   ========================================================= */
+
+
+/* ===== 1. Variables =====
+   Defined once on :root so every rule can reuse them.
+   Change a value here and it updates everywhere. */
+:root {
+  /* Colors */
+  --color-primary: #1d4ed8;       /* main blue: buttons, links */
+  --color-primary-dark: #1e3a8a;  /* darker blue: hover, header, footer */
+  --color-accent: #f59e0b;        /* orange: small highlights */
+  --color-text: #1f2937;          /* main text (dark grey, softer than black) */
+  --color-text-muted: #4b5563;    /* secondary text */
+  --color-bg: #ffffff;            /* page background */
+  --color-bg-alt: #f3f4f6;        /* light grey background for alternate sections */
+  --color-border: #d1d5db;        /* borders of inputs and cards */
+  --color-white: #ffffff;
+
+  /* Spacing scale: always pick from these, never random numbers */
+  --space-xs: 0.5rem;   /*  8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 4rem;     /* 64px */
+
+  /* Other shared values */
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius: 8px;            /* rounded corners */
+  --max-width: 1100px;      /* content never gets wider than this */
+}
+
+
+/* ===== 2. Base / reset styles ===== */
+
+/* Make width/height include padding and border (much easier to reason about) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling when a nav link jumps to a section */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;                      /* remove the browser's default 8px margin */
+  font-family: var(--font-main);
+  font-size: 1rem;
+  line-height: 1.6;               /* comfortable space between lines */
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* Headings: remove default top margin, use one consistent bottom margin */
+h1,
+h2,
+h3 {
+  margin: 0 0 var(--space-sm);
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 var(--space-sm);
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Clear outline for keyboard users (Tab key), on every clickable element */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Images never overflow their container */
+img {
+  max-width: 100%;
+  display: block;
+}
