@@ -19,6 +19,21 @@ const server = http.createServer((req, res) => {
   res.end(JSON.stringify(shipments));
   return;
 }
+  if (req.method === 'POST' && path === '/shipments') {
+    let body = '';
+
+    req.on('data', (piece) => {
+      body += piece;
+    });
+
+    req.on('end', () => {
+      console.log('Full body received:', body);
+      res.writeHead(201, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Got it!' }));
+    });
+
+    return;
+  }
   res.writeHead(404, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({ error: 'Not found' }));
 });
