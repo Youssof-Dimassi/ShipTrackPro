@@ -27,7 +27,14 @@ const server = http.createServer((req, res) => {
     });
 
     req.on('end', () => {
-      const data = JSON.parse(body);
+      let data;
+      try {
+        data = JSON.parse(body);
+      } catch (err) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid JSON' }));
+        return;
+      }
       console.log('Origin is:', data.origin);
       console.log('Destination is:', data.destination);
       res.writeHead(201, { 'Content-Type': 'application/json' });
