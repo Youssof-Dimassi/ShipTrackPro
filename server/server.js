@@ -27,7 +27,9 @@ const server = http.createServer((req, res) => {
     });
 
     req.on('end', () => {
-      console.log('Full body received:', body);
+      const data = JSON.parse(body);
+      console.log('Origin is:', data.origin);
+      console.log('Destination is:', data.destination);
       res.writeHead(201, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ message: 'Got it!' }));
     });
