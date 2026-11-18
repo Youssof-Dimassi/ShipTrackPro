@@ -2,6 +2,7 @@ let shipments = [
   { id: 1, trackingNumber: 'STP-1001', origin: 'Beirut', destination: 'Paris', status: 'in_transit' },
   { id: 2, trackingNumber: 'STP-1002', origin: 'Dubai', destination: 'Beirut', status: 'delivered' },
 ];
+let nextId = 3;
 
 
 const http = require('http');
@@ -35,10 +36,30 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify({ error: 'Invalid JSON' }));
         return;
       }
-      console.log('Origin is:', data.origin);
-      console.log('Destination is:', data.destination);
+      if (typeof data !== 'object' || data === null || Array.isArray(data)) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Body must be a JSON object' }));
+        return;
+      }
+
+      if (!data.trackingNumber || !data.origin || !data.destination) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'trackingNumber, origin and destination are required' }));
+        return;
+      }
+
+      const newShipment = {
+        id: nextId++,
+        trackingNumber: data.trackingNumber,
+        origin: data.origin,
+        destination: data.destination,
+        status: data.status || 'pending',
+      };
+
+      shipments.push(newShipment);
+
       res.writeHead(201, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ message: 'Got it!' }));
+      res.end(JSON.stringify(newShipment));
     });
 
     return;
