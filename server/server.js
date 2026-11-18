@@ -1,13 +1,12 @@
+const http = require('http');
+
+const PORT = 3000;
+
 let shipments = [
   { id: 1, trackingNumber: 'STP-1001', origin: 'Beirut', destination: 'Paris', status: 'in_transit' },
   { id: 2, trackingNumber: 'STP-1002', origin: 'Dubai', destination: 'Beirut', status: 'delivered' },
 ];
 let nextId = 3;
-
-
-const http = require('http');
-
-const PORT = 3000;
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -15,11 +14,12 @@ const server = http.createServer((req, res) => {
 
   console.log(req.method, path);
 
- if (req.method === 'GET' && path === '/shipments') {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify(shipments));
-  return;
-}
+  if (req.method === 'GET' && path === '/shipments') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(shipments));
+    return;
+  }
+
   if (req.method === 'POST' && path === '/shipments') {
     let body = '';
 
@@ -64,6 +64,7 @@ const server = http.createServer((req, res) => {
 
     return;
   }
+
   res.writeHead(404, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({ error: 'Not found' }));
 });
